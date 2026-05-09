@@ -10,17 +10,29 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -Wall -Wextra")
 
-# Ищем libcurl
+# Ищем libcurl (если он всё ещё нужен)
 find_package(CURL REQUIRED)
 if(NOT CURL_FOUND)
     message(FATAL_ERROR "libcurl not found. Install: sudo apt install libcurl4-openssl-dev")
 endif()
 
-# Добавляем исполняемый файл (main.cpp лежит в src/)
-add_executable(cpp_setup src/main.cpp)
+# Добавляем исполняемый файл:
+# - main.cpp (корень проекта)
+# - исходник из src/
+# - заголовочный файл (для удобства отображения в IDE)
+add_executable(cpp_setup
+    main.cpp
+    src/Quic-Installation-Of-C-.cpp
+    include/Quic-Installation-Of-C-.hpp
+)
 
-# Подключаем заголовки и библиотеки curl
-target_include_directories(cpp_setup PRIVATE ${CURL_INCLUDE_DIRS})
+# Подключаем директории include: свою и libcurl
+target_include_directories(cpp_setup PRIVATE
+    include
+    ${CURL_INCLUDE_DIRS}
+)
+
+# Линкуем libcurl
 target_link_libraries(cpp_setup PRIVATE ${CURL_LIBRARIES})
 
 # Проверка компилятора на поддержку C++26
