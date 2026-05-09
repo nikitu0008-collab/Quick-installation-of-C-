@@ -13,6 +13,15 @@
 - 🎨 Скачивает **минималистичную тему/настройки** для VS Code
 - 🔧 Написано на C++26 с использованием libcurl
 
+## 📁 Структура проекта
+├── CMakeLists.txt
+├── main.cpp # точка входа
+├── src/
+│ └── Quic-Installation-Of-C-.cpp # основная логика
+├── include/
+│ └── Quic-Installation-Of-C-.hpp # заголовки
+└── README.md
+
 ## 🚀 Быстрый старт
 
 ```bash
@@ -26,14 +35,17 @@ make
 Программа сама предложит установить clangd и тему.
 🖥 Требования
 
-    Linux (тестировалось на Arch 7.04/8.04)
+    Linux (тестировалось на Arch, Ubuntu 22.04+)
 
     Компилятор с поддержкой C++26 (GCC 14+ или Clang 18+)
 
     CMake (≥ 3.20)
 
     libcurl (разработка):
-    sudo apt install libcurl4-openssl-dev
+    bash
+
+    sudo apt install libcurl4-openssl-dev   # Debian/Ubuntu
+    # или sudo pacman -S curl               # Arch
 
 📝 Примечания
 
@@ -50,7 +62,7 @@ make
 🔧 Сборка вручную (без CMake)
 bash
 
-g++ -std=c++26 -O2 src/main.cpp -o cpp_setup -lcurl
+g++ -std=c++26 -O2 main.cpp src/Quic-Installation-Of-C-.cpp -I include -o cpp_setup -lcurl
 ./cpp_setup
 
 🤝 Улучшения, которые можно сделать
