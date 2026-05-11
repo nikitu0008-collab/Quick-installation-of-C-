@@ -15,11 +15,11 @@
 
 ## 📁 Структура проекта
 ├── CMakeLists.txt
-├── main.cpp # точка входа
+├── main.cpp
 ├── src/
-│ └── Quic-Installation-Of-C-.cpp # основная логика
+│   └── Quic-Installation-Of-C-.cpp
 ├── include/
-│ └── Quic-Installation-Of-C-.hpp # заголовки
+│   └── Quic-Installation-Of-C-.hpp
 └── README.md
 
 ## 🚀 Быстрый старт
